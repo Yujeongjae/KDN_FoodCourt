@@ -17,7 +17,7 @@
 	}
 	function getNoticeBoard(nno){
 		document.getElementById("nno").value = nno;
-		<% System.out.println("111111111"+); %>
+		<% System.out.println("111111111"); %>
 		var nfrm = document.getElementById("nfrm");
 		<% System.out.println("222222222"); %>
 		frm.action="searchNoticeBoard.do";
@@ -56,7 +56,6 @@
 						<tr>
 							<td>${noticeBoard.nno}</td>
 							<td><a href="#" onclick="getNoticeBoard(${noticeBoard.nno})">${noticeBoard.title}</a></td>
-							<c:out value="${noticeBaord.nno }">${noticeBoard.nno }</c:out>
 							<td>${noticeBoard.ndate}</td>
 						</tr>
 					</c:forEach>
