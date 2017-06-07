@@ -7,10 +7,9 @@ import com.kdn.model.domain.PageBean;
 
 public interface MemberService {
 
-	public Member search(String id);
+	public Member search(int mno);
 	public List<Member> searchAll(PageBean bean);
-	public boolean login(String id, String passwrod);
-	public void withdraw(String id);
+	public boolean login(int mno, String passwrod);
 	public void update(Member member);
 	public void add(Member member);
 

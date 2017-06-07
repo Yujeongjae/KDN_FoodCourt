@@ -8,7 +8,7 @@ import com.kdn.model.domain.Member;
 import com.kdn.model.domain.PageBean;
 
 public interface MemberDao {
-	public Member search(String id)  ;
+	public Member search(int id)  ;
 	public List<Member> searchAll(PageBean bean) ;
 	public int getCount( PageBean bean)  ;
 	public void add( Member member)  ;

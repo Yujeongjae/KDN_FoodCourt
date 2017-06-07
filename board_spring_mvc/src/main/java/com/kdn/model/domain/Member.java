@@ -3,43 +3,47 @@ package com.kdn.model.domain;
 import java.io.Serializable;
 
 public class Member implements Serializable{
-	private String id;
+	private int mno;
+	private char grade;
 	private String password;
-	private String name;
+	private String mname;
+	private String phone;
 	private String email;
-	private String address;
-	private String withdraw;
+	private int pno;
 
-	public Member() {	}
-	public Member(String id, String password) {
-		super();
-		this.id = id;
-		this.password = password;
+	public Member(){
+		
 	}
-	public Member(String id, String password, String name, String email
-                , String address) {
+	public Member(int mno, String password, String mname, String phone, String email) {
 		super();
-		this.id = id;
+		this.mno = mno;
 		this.password = password;
-		this.name = name;
+		this.mname = mname;
+		this.phone = phone;
 		this.email = email;
-		this.address = address;
 	}
-	public Member(String id, String password, String name, String email
-                , String address, String withdraw) {
+	
+	public Member(int mno, String password, String mname, String phone, String email, int pno) {
 		super();
-		this.id = id;
+		this.mno = mno;
 		this.password = password;
-		this.name = name;
+		this.mname = mname;
+		this.phone = phone;
 		this.email = email;
-		this.address = address;
-		this.withdraw = withdraw;
+		this.pno = pno;
 	}
-	public String getId() {
-		return id;
+	
+	public int getMno() {
+		return mno;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
+	public char getGrade() {
+		return grade;
+	}
+	public void setGrade(char grade) {
+		this.grade = grade;
 	}
 	public String getPassword() {
 		return password;
@@ -47,11 +51,17 @@ public class Member implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getName() {
-		return name;
+	public String getMname() {
+		return mname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getEmail() {
 		return email;
@@ -59,23 +69,16 @@ public class Member implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
-		return address;
+	public int getPno() {
+		return pno;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setPno(int pno) {
+		this.pno = pno;
 	}
-	public String getWithdraw() {
-		return withdraw;
-	}
-	public void setWithdraw(String withdraw) {
-		this.withdraw = withdraw;
-	}
+	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("id=").append(id).append(", password=").append(password).append(", name=").append(name)
-				.append(", email=").append(email).append(", address=").append(address).append(", withdraw=")
-				.append(withdraw);
-		return builder.toString();
+		return "Member [mno=" + mno + ", grade=" + grade + ", password="
+				+ password + ", mname=" + mname + ", phone=" + phone
+				+ ", email=" + email + "]";
 	}
 }

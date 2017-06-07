@@ -137,11 +137,11 @@
             <li><a href="#about" class="smooth-scroll">Review</a></li>
             <li><a href="#dishes" class="smooth-scroll">TOP4</a></li>
      
-            <c:if test = "${empty id}">
+            <c:if test = "${empty mno}">
             	<li><a href="registerForm.do" class="smooth-scroll"> Register </a></li>
             	<li><a href="" class="smooth-scroll" data-toggle="modal" data-target="#myModal"> Login </a></li>
             </c:if>
-            <c:if test = "${!empty id}">
+            <c:if test = "${!empty mno}">
             	<li><a href="mypageForm.do" class="smooth-scroll" > MyPage </a></li>
             	<li><a href="logout.do" class="smooth-scroll" > Logout </a></li>
             </c:if>
@@ -159,11 +159,11 @@
                     <form role="form" action="login.do" method="post" id="login-form" autocomplete="off" >
                         <div class="form-group">
                             <label for="email" class="sr-only">Email</label>
-                            <input type="text" name="id" id="id" class="form-control" placeholder="Employee Number">
+                            <input type="text" name="mno" id="mno" class="form-control" placeholder="Employee Number">
                         </div>
                         <div class="form-group">
                             <label for="key" class="sr-only">Password</label>
-                            <input type="password" name="key" id="key" class="form-control" placeholder="Password">
+                            <input type="password" name="pw" id="pw" class="form-control" placeholder="Password">
                         </div>
                         <div class="checkbox">
                             <span class="character-checkbox" onclick="showPassword()"></span>

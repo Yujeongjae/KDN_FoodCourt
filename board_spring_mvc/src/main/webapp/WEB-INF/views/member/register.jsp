@@ -18,7 +18,7 @@
 </head>
 <body>
 <center>
-<form class="form-horizontal">
+<form class="form-horizontal" action = "registerMember.do" method = "POST">
 <fieldset>
 	<legend class="form-title">REGISTER</legend>
     <div class="form-group">
@@ -30,7 +30,7 @@
     <div class="form-group">
       <label class="col-lg-2 control-label" for="password">Password</label>
       <div class="col-lg-10">
-        <input class="form-control" id="password" type="password" placeholder="Password">
+        <input class="form-control" id="pw" type="pw" placeholder="Password">
       </div>
     </div>
     <div class="form-group">
