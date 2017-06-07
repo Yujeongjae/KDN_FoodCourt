@@ -18,58 +18,54 @@ import com.kdn.model.domain.PageBean;
 
 @Controller
 public class MemberController {
+	
 	@Autowired
-	private MemberService memberServie;
+	private MemberService memberService;
 	
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
 		ModelAndView model = new ModelAndView("index");
 		model.addObject("msg", e.getMessage());
 		model.addObject("content", "ErrorHandler.jsp");
-		
 		return model;
 	}
 	
+	//등록
 	@RequestMapping(value="registerForm.do", method=RequestMethod.GET)
 	public String insertMemberForm(Model model) {
-		model.addAttribute("content", "member/register.jsp;");
+		model.addAttribute("content", "member/register.jsp");
 		return "index";
 	}
 	
-	@RequestMapping(value="insertMember.do", method=RequestMethod.POST)
+	@RequestMapping(value="registerMember.do", method=RequestMethod.POST)
 	public String insertMember(Member member, Model model) {
-		memberServie.add(member);
-		model.addAttribute("content", "member/login.jsp");
-		
+		memberService.add(member);
 		return "index";
 	}
 	
+	//로그인
 	@RequestMapping(value="login.do", method=RequestMethod.POST)
-	public String login(Model model, HttpSession session, String id, String pw) {
-		System.out.println(id);
-		session.setAttribute("id", id);
+	public String login(Model model, HttpSession session, int mno, String pw) {
+		System.out.println("log : 로그인 시도 - " + mno);
+		memberService.login(mno, pw);
+		session.setAttribute("mno", mno);
+		System.out.println("log : 로그인 완료");
 		return "index";
 	}
-	
-	@RequestMapping(value="loginform.do", method=RequestMethod.GET)
-	public String login(Model model) {
-		model.addAttribute("content", "member/login.jsp");
-		
-		return "index";
-	}
-	
+
+	//로그아웃
 	@RequestMapping(value="logout.do", method=RequestMethod.GET)
-	public String login(HttpSession session) {
-		session.removeAttribute("id");
+	public String loginOut(HttpSession session) {
+		session.removeAttribute("mno");
 		return "index";
 	}
 	
+	//myPage
 	@RequestMapping(value="myPage.do", method=RequestMethod.GET)
 	public String myPage(HttpSession session, Model model) {
-		String id = (String)session.getAttribute("id");
-		model.addAttribute("member", memberServie.search(id));
+		int mno = (Integer) session.getAttribute("id");
+		model.addAttribute("member", memberService.search(mno));
 		model.addAttribute("content", "member/memberInfo.jsp");
-		
 		return "index";
 		
 	}
@@ -77,35 +73,23 @@ public class MemberController {
 	@RequestMapping(value="memberUpdateForm.do", method=RequestMethod.GET)
 	public String memberUpdateForm(Model model) {
 		model.addAttribute("content", "member/updateMember.jsp");
-		
 		return "index";
-		
-		
 	}
 	
 	@RequestMapping(value="updateMember.do", method=RequestMethod.POST)
 	public String updateMember(Member member, Model model) {
-		memberServie.update(member);
+		memberService.update(member);
 		model.addAttribute("content", "member/memberInfo.jsp");
-		
 		return "index";
 		
 	}
 	
+	//멤버 리스트
 	@RequestMapping(value="memberList.do", method=RequestMethod.GET)
 	public String memberList(PageBean bean, Model model) {
-		List<Member> list = memberServie.searchAll(bean);
+		List<Member> list = memberService.searchAll(bean);
 		model.addAttribute("mlist", list);
 		model.addAttribute("content", "member/memberList.jsp");
-		
 		return "index";
 	}
 }
-
-
-
-
-
-
-
-

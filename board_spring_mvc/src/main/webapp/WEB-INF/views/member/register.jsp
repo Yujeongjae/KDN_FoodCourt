@@ -5,11 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Register</title>
+<style>
+	.form-group {
+		width: 600px;
+	}
+	.form-title {
+		font-size: 30px;
+		font-style: bold;
+		padding: 10px;
+	}
+</style>
 </head>
 <body>
-<form class="form-horizontal">
+<center>
+<form class="form-horizontal" action = "registerMember.do" method = "POST">
 <fieldset>
-	<legend>REGISTER</legend>
+	<legend class="form-title">REGISTER</legend>
     <div class="form-group">
       <label class="col-lg-2 control-label" for="id">ID</label>
       <div class="col-lg-10">
@@ -19,7 +30,7 @@
     <div class="form-group">
       <label class="col-lg-2 control-label" for="password">Password</label>
       <div class="col-lg-10">
-        <input class="form-control" id="password" type="password" placeholder="Password">
+        <input class="form-control" id="pw" type="pw" placeholder="Password">
       </div>
     </div>
     <div class="form-group">
@@ -59,5 +70,6 @@
     </div>
 </fieldset>
 </form>
+</center>
 </body>
 </html>

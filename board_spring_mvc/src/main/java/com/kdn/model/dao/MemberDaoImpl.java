@@ -18,14 +18,14 @@ public class MemberDaoImpl implements MemberDao {
 	private SqlSessionTemplate session;
 	
 	@Override
-	public Member search(String id) {
+	public Member search(int id) {
 		return session.selectOne("member.search", id);
 	}
 
 	@Override
 	public List<Member> searchAll(PageBean bean) {
 		RowBounds rows = new RowBounds(bean.getStart()-1, bean.getInterval());
-		return session.selectList("member.searchAll", bean);
+		return session.selectList("member.searchAll", bean, rows);
 	}
 
 	@Override

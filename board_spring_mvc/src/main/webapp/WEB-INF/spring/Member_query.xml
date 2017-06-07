@@ -12,29 +12,30 @@
 
 
 <mapper namespace="member">
-	<select id="search" parameterType="String" resultType="member">
+	<select id="search" parameterType="int" resultType="member">
 		select *
 		from member
-		where id=#{id}
+		where mno=#{mno}
 	</select>
+	
 	<select id="searchAll" parameterType="pagebean" resultType="member"> <!-- 프로그램에서 리스트로 담아서 리턴 -->
 		select * from member
 		<where>
 			<if test="word != null">
 				<choose>
-					<when test="key =='id'">
-						id= #{word}
+					<when test="key =='mno'">
+						mno = #{word}
 					</when>
-					<when test="key =='address'">
-						address like '%'||#{word}||'%'
+					<when test="key =='email'">
+						email like '%'||#{word}||'%'
 					</when>
-					<when test="key =='name'">
-						name like '%'||#{word}||'%'
+					<when test="key =='mname'">
+						mname like '%'||#{word}||'%'
 					</when>
 				</choose>
 			</if>
 		</where>
-		order by id
+		order by mno
 	</select>
 	
 	<select id="getCount" parameterType="pagebean" resultType="int"> 
@@ -42,14 +43,14 @@
 		<where>
 			<if test="word != null">
 				<choose>
-					<when test="key =='id'">
-						id= #{word}
+					<when test="key =='mno'">
+						mno = #{word}
 					</when>
-					<when test="key =='address'">
-						address like '%'||#{word}||'%'
+					<when test="key =='email'">
+						email like '%'||#{word}||'%'
 					</when>
-					<when test="key =='name'">
-						name like '%'||#{word}||'%'
+					<when test="key =='mname'">
+						mname like '%'||#{word}||'%'
 					</when>
 				</choose>
 			</if>
@@ -57,28 +58,28 @@
 	</select>
 	
 	<insert id="insert" parameterType="member">
-		insert into member(id, password, name, email, address)
+		insert into member(MNO,PASSWORD,MNAME,PHONE,EMAIL)
 		values(
-				#{id:VARCHAR}
+				#{MNO:INTEGER}
 				, #{password:VARCHAR}	
-				, #{name:VARCHAR}	
+				, #{Mname:VARCHAR}
+				, #{PHONE:VARCHAR}	
 				, #{email:VARCHAR}	
-				, #{address:VARCHAR}	
 		)
 	</insert>
 
 	<update id="update" parameterType="member">
 		update member set password=#{password:VARCHAR}
-						, name=#{name:VARCHAR}	
+						, mname=#{mname:VARCHAR}	
 						,email= #{email:VARCHAR}	
-						,address=#{address:VARCHAR}
-		where id=#{id:VARCHAR}
+						,phone=#{phone:VARCHAR}
+		where mno=#{mno:INTEGER}
 	</update>
 	
-	<update id="delete" parameterType="String">
-		update member set withdraw='Y'
-		where id=#{id:VARCHAR}
-	</update>
+	<delete id="delete" parameterType="String">
+		delete from member
+		where mno=#{mno:INTEGER}
+	</delete>
 	
 	
 </mapper>
