@@ -5,11 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Register</title>
+<style>
+	.form-group {
+		width: 600px;
+	}
+	.form-title {
+		font-size: 30px;
+		font-style: bold;
+		padding: 10px;
+	}
+</style>
 </head>
 <body>
+<center>
 <form class="form-horizontal">
 <fieldset>
-	<legend>REGISTER</legend>
+	<legend class="form-title">REGISTER</legend>
     <div class="form-group">
       <label class="col-lg-2 control-label" for="id">ID</label>
       <div class="col-lg-10">
@@ -59,5 +70,6 @@
     </div>
 </fieldset>
 </form>
+</center>
 </body>
 </html>

@@ -110,6 +110,7 @@
 #loginFooter a {
     color: inherit;
 }
+
 </style>
 <body>
 
