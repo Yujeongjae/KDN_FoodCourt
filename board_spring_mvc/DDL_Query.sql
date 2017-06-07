@@ -10,7 +10,8 @@ CREATE TABLE member(mno NUMBER PRIMARY KEY,
 CREATE TABLE noticeBoard(nno NUMBER PRIMARY KEY,
 						mno NUMBER REFERENCES member(mno),
                         title VARCHAR2(255) NOT NULL,
-                        CONTENTS VARCHAR2(2000)
+                        CONTENTS VARCHAR2(2000),
+                        ndate date
                         );
 
 CREATE TABLE upload(uno NUMBER PRIMARY KEY,
@@ -85,6 +86,9 @@ BEGIN
         WHERE mno = check_mno;
     END IF;
 END;
+
+SELECT * FROM foodmenu;
+SELECT * FROM psurvey;
 
 CREATE SEQUENCE dsurvey_no;
 CREATE SEQUENCE anoboard_no;
