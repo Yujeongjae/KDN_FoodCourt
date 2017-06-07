@@ -11,10 +11,14 @@
    <title>KDN Restaurant</title>
 
    <!-- CSS includes -->
+   <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" rel="stylesheet" />
-    <link href="css/theme.css" rel="stylesheet">
+    <link href="bootstrap/css/theme.css" rel="stylesheet">
+    <link href="bootstrap/css/bootswatch.scss" rel="stylesheet">
+    <link href="bootstrap/css/variables.scss" rel="stylesheet">
+    
 
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -195,38 +199,48 @@
    </div> <!-- /.modal-dialog -->
 </div> <!-- /.modal -->
 
-<!-- Carousel -->   
-<div id="theme-carousel" class="carousel slide" data-ride="carousel">
-   <!-- Indicators -->
-   <ol class="carousel-indicators">
-      <li data-target="#theme-carousel" data-slide-to="0" class="active"></li>
-      <li data-target="#theme-carousel" data-slide-to="1"></li>
-      <li data-target="#theme-carousel" data-slide-to="2"></li>
-   </ol>
-   <!-- Wrapper for slides -->
-   <div class="carousel-inner" role="listbox">
-      <div class="item active">
-         <img src="images/carousel1.jpg" alt="carousel1" style="width:100%" />
-         <div class="carousel-caption">
-            <h2>"People who love to eat are always the best people"</h2>
-            <p>Julia Child</p>
-         </div>
-      </div>
-      <div class="item">
-         <img src="images/carousel2.jpg" alt="carousel2" style="width:100%" />
-         <div class="carousel-caption">
-            <h2>What does it come from?</h2>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
-         </div>
-      </div>
-      <div class="item">
-         <img src="images/carousel3.jpg" alt="carousel3" style="width:100%">
-         <div class="carousel-caption">
-            <h2>Why do we use it?</h2>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-         </div>
-      </div>
-   </div>
+<!-- Carousel -->
+<article id="mainContent">
+<c:choose>
+		<c:when  test="${!empty content}">
+			<jsp:include page="${content}"/>
+		</c:when>
+		<c:otherwise>
+			<div id="theme-carousel" class="carousel slide" data-ride="carousel">
+			   <!-- Indicators -->
+			   <ol class="carousel-indicators">
+			      <li data-target="#theme-carousel" data-slide-to="0" class="active"></li>
+			      <li data-target="#theme-carousel" data-slide-to="1"></li>
+			      <li data-target="#theme-carousel" data-slide-to="2"></li>
+			   </ol>
+			   <!-- Wrapper for slides -->
+			   <div class="carousel-inner" role="listbox">
+			      <div class="item active">
+			         <img src="images/carousel1.jpg" alt="carousel1" style="width:100%" />
+			         <div class="carousel-caption">
+			            <h2>"People who love to eat are always the best people"</h2>
+			            <p>Julia Child</p>
+			         </div>
+			      </div>
+			      <div class="item">
+			         <img src="images/carousel2.jpg" alt="carousel2" style="width:100%" />
+			         <div class="carousel-caption">
+			            <h2>What does it come from?</h2>
+			            <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+			         </div>
+			      </div>
+			      <div class="item">
+			         <img src="images/carousel3.jpg" alt="carousel3" style="width:100%">
+			         <div class="carousel-caption">
+			            <h2>Why do we use it?</h2>
+			            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+			         </div>
+			      </div>
+				</div>
+			</div>
+		</c:otherwise>
+	</c:choose>
+</article>
    <!-- Controls -->
    <a class="left carousel-control" href="#theme-carousel" role="button" data-slide="prev">
         <div class="carousel-control-arrow">&#8249;</div>

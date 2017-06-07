@@ -30,9 +30,9 @@ public class MemberController {
 		return model;
 	}
 	
-	@RequestMapping(value="insertMemberForm.do", method=RequestMethod.GET)
+	@RequestMapping(value="registerForm.do", method=RequestMethod.GET)
 	public String insertMemberForm(Model model) {
-		model.addAttribute("content", "member/insertMember.jsp;");
+		model.addAttribute("content", "member/register.jsp;");
 		return "index";
 	}
 	
