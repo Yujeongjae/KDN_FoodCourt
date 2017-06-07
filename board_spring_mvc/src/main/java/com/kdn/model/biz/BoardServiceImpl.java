@@ -1,7 +1,5 @@
 package com.kdn.model.biz;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,6 @@ import com.kdn.model.domain.Board;
 import com.kdn.model.domain.FileBean;
 import com.kdn.model.domain.PageBean;
 import com.kdn.model.domain.UpdateException;
-import com.kdn.util.DBUtil;
 import com.kdn.util.PageUtility;
 
 @Service("boardService")
@@ -33,7 +30,7 @@ public class BoardServiceImpl implements BoardService {
          }
       } catch (Exception e) {
          e.printStackTrace();
-         throw new UpdateException("°Ô½Ã±Û ÀÛ¼º Áß ¿À·ù ¹ß»ý");
+         throw new UpdateException("ï¿½Ô½Ã±ï¿½ ï¿½Û¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
       }
    }
 
@@ -44,7 +41,7 @@ public class BoardServiceImpl implements BoardService {
          
       } catch (Exception e) {
          e.printStackTrace();
-         throw new UpdateException("°Ô½Ã±Û ¼öÁ¤ Áß ¿À·ù ¹ß»ý");
+         throw new UpdateException("ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
       }
    }
 
@@ -55,7 +52,7 @@ public class BoardServiceImpl implements BoardService {
          dao.remove(no);
       } catch (Exception e) {
          e.printStackTrace();
-         throw new UpdateException("°Ô½Ã±Û »èÁ¦ Áß ¿À·ù ¹ß»ý");
+         throw new UpdateException("ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
       }
    }
    @Override
@@ -64,7 +61,7 @@ public class BoardServiceImpl implements BoardService {
          return dao.search(no);
       } catch (Exception e) {
          e.printStackTrace();
-         throw new UpdateException("°Ô½Ã±Û °Ë»ö Áß ¿À·ù ¹ß»ý");
+         throw new UpdateException("ï¿½Ô½Ã±ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
       }
    }
    @Override
@@ -81,7 +78,7 @@ public class BoardServiceImpl implements BoardService {
          return dao.searchAll(bean);
       } catch (Exception e) {
          e.printStackTrace();
-         throw new UpdateException("°Ô½Ã±Û °Ë»ö Áß ¿À·ù ¹ß»ý");
+         throw new UpdateException("ï¿½Ô½Ã±ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
       }
    }
 }

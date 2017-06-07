@@ -5,7 +5,10 @@ CREATE TABLE member(mno NUMBER PRIMARY KEY,
                     phone VARCHAR2(255) NOT NULL,
                     email VARCHAR2(255) NOT NULL);
 
+insert into member(mno, grade, password, mname, phone, email)
+values(1111, 'n', '1234', 'kdn', '010-1234-5432', 'kdn@kdn.com');
 
+select * from member;
 
 CREATE TABLE noticeBoard(nno NUMBER PRIMARY KEY,
 						mno NUMBER REFERENCES member(mno),
@@ -13,6 +16,13 @@ CREATE TABLE noticeBoard(nno NUMBER PRIMARY KEY,
                         CONTENTS VARCHAR2(2000),
                         ndate date
                         );
+                        
+insert into noticeBoard (nno, mno, title, contents, ndate)
+values(noticeboard_no.nextval, 1111, '첫번째 게시글', '안녕하세요~~~~', sysdate);
+insert into noticeBoard (nno, mno, title, contents, ndate)
+values(noticeboard_no.nextval, 1111, '두번째 게시글', '안녕하세요~~~~!!!!!!!', sysdate);
+
+select * from noticeBoard;
 
 CREATE TABLE upload(uno NUMBER PRIMARY KEY,
 					rfilename VARCHAR2(2000),

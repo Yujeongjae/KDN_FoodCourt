@@ -59,6 +59,7 @@ public class BoardController {
 
 	@RequestMapping(value="searchBoard.do", method=RequestMethod.GET)
 	public String searchBoard(int no, Model model) {
+		System.out.println("boardcontrol>>>>>>>>>>>>>>>>>>>>>>>>>searchboard.do");
 		model.addAttribute("board", boardService.search(no));
 		model.addAttribute("content", "board/searchBoard.jsp");
 		return "index";

@@ -257,44 +257,50 @@
         </div>
         <div class="row">
             <div class="col-md-8">
+            
+            	<article id="noticeBoardContent">
+            		<jsp:include page="${noticeBoardContent}"/>
+            	</article>
+            
+                <!-- <div class="col-md-2 text-center">
+              	 <p class="">
+                  	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+               	 </p>
+            	</div>
+            	<div class="col-md-10 text-justify">
+	               <h3>Wine Tasting</h3>
+	               <p>Saturday, 17th August</p><br />
+	               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo 
+	               ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis 
+	               dis parturi ent montes, nascetur ridiculus mus.</p>
+	            </div>
+	            <div class="col-md-2 text-center">
+	               <p class="">
+	                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+	               </p>
+	            </div>
+	            <div class="col-md-10 text-justify">
+	               <h3>Wine Tasting</h3>
+	               <p>Saturday, 24th August</p><br />
+	               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo 
+	               ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis 
+	               dis parturi ent montes, nascetur ridiculus mus.</p>
+	            </div>
                 <div class="col-md-2 text-center">
-               <p class="">
-                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-               </p>
-            </div>
-            <div class="col-md-10 text-justify">
-               <h3>Wine Tasting</h3>
-               <p>Saturday, 17th August</p><br />
-               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo 
-               ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis 
-               dis parturi ent montes, nascetur ridiculus mus.</p>
-            </div>
-            <div class="col-md-2 text-center">
-               <p class="">
-                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-               </p>
-            </div>
-            <div class="col-md-10 text-justify">
-               <h3>Wine Tasting</h3>
-               <p>Saturday, 24th August</p><br />
-               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo 
-               ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis 
-               dis parturi ent montes, nascetur ridiculus mus.</p>
-            </div>
-                <div class="col-md-2 text-center">
-               <p class="">
-                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-               </p>
-            </div>
-            <div class="col-md-10 text-justify">
-               <h3>Wine Tasting</h3>
-               <p>Sunday, 25th August</p><br />
-               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo 
-               ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis 
-               dis parturi ent montes, nascetur ridiculus mus.</p>
-            </div>
+               		<p class="">
+                  	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              		</p>
+            	</div>
+	            <div class="col-md-10 text-justify">
+	               <h3>Wine Tasting</h3>
+	               <p>Sunday, 25th August</p><br />
+	               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo 
+	               ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis 
+	               dis parturi ent montes, nascetur ridiculus mus.</p>
+	            </div> -->
             </div>
             <div class="col-md-4 text-center">
+            	<a href="listNoticeBoard.do">공지 보기</a>
                 <h3>Events</h3>
                 <div id="calendar" class="calendar"></div>
                 <br /><br />
