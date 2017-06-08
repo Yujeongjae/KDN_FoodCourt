@@ -33,8 +33,8 @@ function removeForm(count){
 			<tr height="50"><td><label for="title">제목</label></td>
 			    <td><input type="text" name="title" id="title"/></td>
 			</tr>
-			<tr height="50"><td><label for="title">아이디</label></td>
-			    <td><input type="text" name="id" id="id"/></td>
+			<tr height="50"><td><label for="title">등록 회원 번호</label></td>
+			    <td><input type="text" name="mno" id="mno"/></td>
 			</tr>
 			<tr height="50" ><td><label for="fileup">업로드할 파일</label></td>
 			    <td>

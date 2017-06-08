@@ -12,17 +12,14 @@
 	function pagelist(cpage){
 		document.getElementById("pageNo").value=cpage;
 		var nfrm = document.getElementById("nfrm");
-		frm.action="listNoticeBoard.do";
-		frm.submit();
+		nfrm.action="listNoticeBoard.do";
+		nfrm.submit();
 	}
 	function getNoticeBoard(nno){
 		document.getElementById("nno").value = nno;
-		<% System.out.println("111111111"); %>
 		var nfrm = document.getElementById("nfrm");
-		<% System.out.println("222222222"); %>
-		frm.action="searchNoticeBoard.do";
-		<% System.out.println("333333333"); %>
-		frm.submit();
+		nfrm.action="searchNoticeBoard.do";
+		nfrm.submit();
 	}
 </script>
 <link rel="stylesheet" type="text/css" href="css/basic.css" />
@@ -31,7 +28,7 @@
 	<div class="main">
 		<form id="nfrm">
 			<input type="hidden" id="pageNo" name="pageNo" value="1" /> <input
-				type="hidden" id="no" name="no" />
+				type="hidden" id="nno" name="nno" />
 			<table align="center">
 				<tr>
 					<th colspan="3">게시글 목록</th>
@@ -45,8 +42,7 @@
 							<option value="contents" <%=pageBean.getKey("contents")%>>내용</option>
 					</select> 
 					<input type="text" id="word" name="word" value="${pageBean.word}" />
-						<a href="#" onclick="pagelist(1)">검색</a> &nbsp;&nbsp;&nbsp; <a
-						href="insertNoticeBoardForm.do">글쓰기</a></td>
+						<a href="#" onclick="pagelist(1)">검색</a> &nbsp;&nbsp;&nbsp; <a href="insertNoticeBoardForm.do">글쓰기</a></td>
 				</tr>
 				<tr align="center">
 					<td width="100">번호</td>

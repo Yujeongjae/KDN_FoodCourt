@@ -33,20 +33,25 @@ public class NoticeBoardController {
 	
 	@RequestMapping(value="insertNoticeBoardForm.do", method=RequestMethod.GET)
 	public String insertBoardForm(Model model) {
-		model.addAttribute("noticeBoard", "notice_board/insertBoard.jsp");
+		System.out.println("insertNoticeBoardForm.do>>>>>>>>>>>>>>>>>>>>>>>>@controller1");
+		model.addAttribute("noticeBoardContent", "notice_board/insertBoard.jsp");
+		System.out.println("insertNoticeBoardForm.do>>>>>>>>>>>>>>>>>>>>>>>>@controller2");
 		return "index";
 	}
 	@RequestMapping(value="insertNoticeBoard.do", method=RequestMethod.POST)
 	public String insertBoard(NoticeBoard noticeBoard, HttpServletRequest request) {
+		System.out.println("insertNoticeBoard>>>>>>>>>>>>>>>>>>>>@controller1");
 		String dir = request.getRealPath("upload/");
+		System.out.println("upload directory : " + dir);
+		System.out.println("insertNoticeBoard>>>>>>>>>>>>>>>>>>>>@controller2");
 		noticeBoardService.add(noticeBoard, dir);
+		System.out.println("insertNoticeBoard>>>>>>>>>>>>>>>>>>>>@controller3");
 		
-		return "redirect:listBoard.do";
+		return "index";
 	}
 	
 	@RequestMapping(value="listNoticeBoard.do", method=RequestMethod.GET)
 	public String listBoard(PageBean bean, Model model) {
-		System.out.println(bean);
 		List<NoticeBoard> list = noticeBoardService.searchAll(bean);
 		model.addAttribute("list", list);
 		model.addAttribute("noticeBoardContent", "notice_board/listBoard.jsp");
@@ -55,11 +60,12 @@ public class NoticeBoardController {
 
 	@RequestMapping(value="searchNoticeBoard.do", method=RequestMethod.GET)
 	public String searchBoard(int nno, Model model) {
-		System.out.println("searchNoticeBoard>>>>>>>>>>>>>>>>>>>>>>>>>>@contoroller1");
+		System.out.println("searchNoticeBaord.do >>>>>>>>>>>>>>>>>>>>>>>> controller1");
 		model.addAttribute("noticeBoard", noticeBoardService.search(nno));
 		System.out.println(nno);
-		System.out.println("searchNoticeBoard>>>>>>>>>>>>>>>>>>>>>>>>>>@contoroller2");
+		System.out.println("searchNoticeBaord.do >>>>>>>>>>>>>>>>>>>>>>>> controller2");
 		model.addAttribute("noticeBoardContent", "notice_board/searchBoard.jsp");
+		System.out.println("searchNoticeBaord.do >>>>>>>>>>>>>>>>>>>>>>>> controller3");
 		return "index";
 		
 	}

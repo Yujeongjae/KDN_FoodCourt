@@ -47,7 +47,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 	@Override
 	public NoticeBoard search(int nno) {
 		try {
-			System.out.println("searchf>>>>>>>>>>>>>>>>>>>>>>>>@");
+			System.out.println("search>>>>>>>>>>>>>>>>>>>@service");
+			System.out.println(nno);
 			return dao.search(nno);
 		} catch (Exception e) {
 			e.printStackTrace();		
@@ -58,13 +59,16 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
 	@Override
 	public void add(NoticeBoard noticeBoard, String dir) {
+		System.out.println("insert notice board >>>>>>>>>>>>>>>>>>>>>>>>> @Service1");
 		File[] files = null;
 		int size = 0;
 		
 		try {			
 			int nno = dao.getNoticeBoardNo();	
 			noticeBoard.setNno(nno);
+			System.out.println("insert notice board >>>>>>>>>>>>>>>>>>>>>>>>> @Service2");
 			dao.add(noticeBoard);			
+			System.out.println("insert notice board >>>>>>>>>>>>>>>>>>>>>>>>> @Service3");
 			MultipartFile[] fileup = noticeBoard.getFileup();			
 			int index = 0;					
 			if(fileup != null){

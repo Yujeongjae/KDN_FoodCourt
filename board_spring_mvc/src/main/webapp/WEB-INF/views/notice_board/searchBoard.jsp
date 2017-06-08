@@ -31,7 +31,7 @@
 		frm.submit();
 	}
 	function listBoard(){
-		location.href="listBoard.do?<%=request.getQueryString()%>";
+		location.href="listNoticeBoard.do?<%=request.getQueryString()%>";
 	}
 	function resetBoard(){
 		var frm = document.getElementById("updatefrm");
