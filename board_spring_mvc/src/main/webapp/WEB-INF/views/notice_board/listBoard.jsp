@@ -17,11 +17,8 @@
 	}
 	function getNoticeBoard(nno){
 		document.getElementById("nno").value = nno;
-		<% System.out.println("111111111"); %>
 		var nfrm = document.getElementById("nfrm");
-		<% System.out.println("222222222"); %>
 		frm.action="searchNoticeBoard.do";
-		<% System.out.println("333333333"); %>
 		frm.submit();
 	}
 </script>
@@ -55,14 +52,14 @@
 					<c:forEach var="noticeBoard" items="${list}">
 						<tr>
 							<td>${noticeBoard.nno}</td>
-							<td><a href="#" onclick="getNoticeBoard(${noticeBoard.nno})">${noticeBoard.title}</a></td>
+							<td><a href='searchNoticeBoard.do?nno=${noticeBoard.nno}' onclick='getNoticeBoard(${noticeBoard.nno})'>${noticeBoard.title}</a></td>
 							<td>${noticeBoard.ndate}</td>
 						</tr>
 					</c:forEach>
 				</tr>
 			</table>
 			<div class="bottom">
-				<center>${pageBean.pagelink }</center>
+				<center>${pageBean.pagelink}</center>
 			</div>
 		</form>
 	</div>

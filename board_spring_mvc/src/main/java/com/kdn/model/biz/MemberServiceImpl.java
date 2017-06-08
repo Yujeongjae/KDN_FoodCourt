@@ -19,17 +19,16 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	@Qualifier("memberDao")
 	private MemberDao dao;
+	
 	public Member search(int mno) {
 		Member member = null;
 		try {
-			System.out.println("test 출력 : " + mno);
 			member = dao.search(mno);
 		} catch(Exception  s){
-			throw new UpdateException("DB 1");
+			throw new UpdateException("DB Search Error");
 		} 
 		if(member == null){
-			System.out.println(member);
-			throw new UpdateException("2");
+			throw new UpdateException("Member is null in search");
 		}else{
 			return member;
 		}
@@ -42,7 +41,7 @@ public class MemberServiceImpl implements MemberService {
 			int count = dao.getCount( bean);
 			return dao.searchAll(bean);
 		} catch(Exception  s){
-			throw new UpdateException("DB error");
+			throw new UpdateException("DB SearchAll Error");
 		}
 	}
 
@@ -51,13 +50,13 @@ public class MemberServiceImpl implements MemberService {
 		try {
 			member = dao.search(mno);
 		} catch(Exception  s){
-			throw new UpdateException("DB login");
+			throw new UpdateException("DB Login Error");
 		} 
 		if(member == null){
-			throw new UpdateException("login.");
+			throw new UpdateException("회원 정보가 없습니다.");
 		}
 		if(passwrod ==null || !passwrod.equals(member.getPassword())){
-			throw new UpdateException("lo.");
+			throw new UpdateException("비밀번호가 틀립니다");
 		}
 		return true;
 	}
@@ -66,13 +65,12 @@ public class MemberServiceImpl implements MemberService {
 		try {
 			Member find= dao.search(member.getMno());
 			if(find == null){
-				throw new UpdateException("111");
+				throw new UpdateException("Member is null in update procedure");
 			}else{
 				dao.update( member);
-				System.out.println("여긴 되네요");
 			}
 		} catch(Exception  s){
-			throw new UpdateException("DB 222");
+			throw new UpdateException("DB Update Error : " + member);
 		} 
 	}
 	
@@ -85,7 +83,7 @@ public class MemberServiceImpl implements MemberService {
 				dao.add(member);
 			}
 		} catch(Exception  s){
-			throw new UpdateException("DB add");
+			throw new UpdateException("DB Add Error");
 		} 
 	}
 }

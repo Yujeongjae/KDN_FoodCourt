@@ -58,21 +58,17 @@
 	</select>
 	
 	<insert id="insert" parameterType="member">
-		insert into member(MNO,PASSWORD,MNAME,PHONE,EMAIL)
+		insert into member(MNO,GRADE,PASSWORD,MNAME,PHONE,EMAIL)
 		values(
-				#{MNO:INTEGER}
-				, #{password:VARCHAR}	
-				, #{Mname:VARCHAR}
-				, #{PHONE:VARCHAR}	
-				, #{email:VARCHAR}	
+			#{mno:INTEGER},#{grade:CHAR},#{password:VARCHAR},#{mname:VARCHAR},#{phone:VARCHAR},#{email:VARCHAR}
 		)
 	</insert>
 
 	<update id="update" parameterType="member">
-		update member set password=#{password:VARCHAR}
-						, mname=#{mname:VARCHAR}	
-						,email= #{email:VARCHAR}	
-						,phone=#{phone:VARCHAR}
+		update member set password = #{password:VARCHAR}
+						,mname = #{mname:VARCHAR}	
+						,email = #{email:VARCHAR}	
+						,phone = #{phone:VARCHAR}
 		where mno=#{mno:INTEGER}
 	</update>
 	

@@ -19,6 +19,7 @@ public class NoticeBoard implements Serializable{
 	public NoticeBoard() {
 		super();
 	}
+	
 	public NoticeBoard(int nno, int mno, String title, String contents,
 			String ndate) {
 		super();

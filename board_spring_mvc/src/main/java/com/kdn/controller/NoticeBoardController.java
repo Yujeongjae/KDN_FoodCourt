@@ -46,18 +46,22 @@ public class NoticeBoardController {
 	
 	@RequestMapping(value="listNoticeBoard.do", method=RequestMethod.GET)
 	public String listBoard(PageBean bean, Model model) {
+		System.out.println("notice>>>>>>>>>>>>>>>>>1");
 		System.out.println(bean);
 		List<NoticeBoard> list = noticeBoardService.searchAll(bean);
+		System.out.println("notice>>>>>>>>>>>>>>>>>2");
 		model.addAttribute("list", list);
+		System.out.println(list);
+		System.out.println("notice>>>>>>>>>>>>>>>>>3");
 		model.addAttribute("noticeBoardContent", "notice_board/listBoard.jsp");
+		System.out.println("notice>>>>>>>>>>>>>>>>>4");
 		return "index";
 	}
 
 	@RequestMapping(value="searchNoticeBoard.do", method=RequestMethod.GET)
 	public String searchBoard(int nno, Model model) {
-		System.out.println("searchNoticeBoard>>>>>>>>>>>>>>>>>>>>>>>>>>@contoroller1");
+		System.out.println("searchNoticeBoard>>>>>>>>>>>>>>>>>>>>>>>>>>@contoroller1 : " + nno);
 		model.addAttribute("noticeBoard", noticeBoardService.search(nno));
-		System.out.println(nno);
 		System.out.println("searchNoticeBoard>>>>>>>>>>>>>>>>>>>>>>>>>>@contoroller2");
 		model.addAttribute("noticeBoardContent", "notice_board/searchBoard.jsp");
 		return "index";

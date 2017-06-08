@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Member implements Serializable{
 	private int mno;
-	private char grade;
+	private char grade = 'N';
 	private String password;
 	private String mname;
 	private String phone;

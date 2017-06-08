@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Register</title>
+<title>Update</title>
 <style>
 	.form-group {
 		width: 600px;
@@ -16,44 +16,64 @@
 	}
 </style>
 <script type="text/javascript">
+	var pwConfirm = false;
+	
 	function back(){
-		history.back();
+		history.back()
+	}
+	
+	function check(){
+		var pw = document.getElementById("password").value;
+		var pc = document.getElementById("password_confirm").value;
+		if(pw == pc){
+			document.getElementById("frm").submit();
+		}
+		else{
+			alert("두 비밀번호가 일치하지 않습니다.");
+			document.getElementById("password_confirm").value = "";
+		}
 	}
 </script>
 </head>
 <body>
 <center>
-<form class="form-horizontal" action = "registerMember.do" method = "POST">
+<form class="form-horizontal" action = "updateMember.do?mno=${member.mno}" id = "frm" method = "POST">
 <fieldset>
-	<legend class="form-title">REGISTER</legend>
+	<legend class="form-title">UPDATE</legend>
     <div class="form-group">
-      <label class="col-lg-2 control-label" for="id">ID</label>
+      <label class="col-lg-2 control-label" for="mno">ID</label>
       <div class="col-lg-10">
-        <input class="form-control" id="mno" name = "mno" type="text" placeholder="ID">
+        <div class="form-control" id="mno" name = "mno" value = "${member.mno}" align = "left">${member.mno}</div>
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label" for="password">Password</label>
       <div class="col-lg-10">
-        <input class="form-control" type = "password" name = "password" id="password" placeholder="Password">
+        <input class="form-control" type = "password" name = "password" id="password" value = "${member.password}" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label" for="password">Confirm Password</label>
+      <div class="col-lg-10">
+        <input class="form-control" type = "password" name = "password_confirm" id="password_confirm">
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label" for="mname">Name</label>
       <div class="col-lg-10">
-        <input class="form-control" id="mname" name = "mname" type="text" placeholder="Name">
+        <input class="form-control" id="mname" name = "mname" type="text" value = "${member.mname}">
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label" for="phone">Phone</label>
       <div class="col-lg-10">
-        <input class="form-control" id="phone" name = "phone" type="text" placeholder="Phone">
+        <input class="form-control" id="phone" name = "phone" type="text" value = "${member.phone}">
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label" for="email">Email</label>
       <div class="col-lg-10">
-        <input class="form-control" id="email" name = "email" type="text" placeholder="Email">
+        <input class="form-control" id="email" name = "email" type="text" value = "${member.email}">
       </div>
     </div>
     <div class="form-group">
@@ -69,9 +89,8 @@
     </div>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button class="btn btn-primary" type="submit">Submit</button>
-        <button class="btn btn-default" type="reset">Reset</button>
-        <button class="btn btn-primary" type="button" onclick="back()">Cancel</button>
+	    <button class="btn btn-primary" type="button" onclick ="check()">Submit</button>
+        <button class="btn btn-default" type="button" onclick ="back()">Cancel</button>
       </div>
     </div>
 </fieldset>

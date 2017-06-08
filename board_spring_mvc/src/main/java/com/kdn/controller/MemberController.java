@@ -1,7 +1,10 @@
 package com.kdn.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +42,7 @@ public class MemberController {
 	
 	@RequestMapping(value="registerMember.do", method=RequestMethod.POST)
 	public String insertMember(Member member, Model model) {
+		System.out.println(member);
 		memberService.add(member);
 		return "index";
 	}
@@ -63,9 +67,10 @@ public class MemberController {
 	//myPage
 	@RequestMapping(value="myPage.do", method=RequestMethod.GET)
 	public String myPage(HttpSession session, Model model) {
-		int mno = (Integer) session.getAttribute("id");
+		int mno = (Integer) session.getAttribute("mno");
+		System.out.println(memberService.search(mno));
 		model.addAttribute("member", memberService.search(mno));
-		model.addAttribute("content", "member/memberInfo.jsp");
+		model.addAttribute("content", "member/myPage.jsp");
 		return "index";
 		
 	}
@@ -77,11 +82,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="updateMember.do", method=RequestMethod.POST)
-	public String updateMember(Member member, Model model) {
+	public void updateMember(Member member, Model model, HttpServletResponse response) throws IOException {
 		memberService.update(member);
-		model.addAttribute("content", "member/memberInfo.jsp");
-		return "index";
-		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out= response.getWriter();
+		out.println("<script>alert('회원정보가 변경 되었습니다.');"
+				  + "document.location.href = '/board'"
+				  + "</script>");
+		out.flush();
+		out.close();
 	}
 	
 	//멤버 리스트
