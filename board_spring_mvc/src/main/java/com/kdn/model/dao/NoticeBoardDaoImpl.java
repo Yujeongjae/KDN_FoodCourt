@@ -20,7 +20,7 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 	
 	@Override
 	public void add(NoticeBoard noticeBoard) {
-		sql.insert("noticeBaord.insert", noticeBoard);
+		sql.insert("noticeBoard.insert", noticeBoard);
 	}
 
 	@Override
@@ -30,13 +30,14 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 
 	@Override
 	public void remove(int nno) {
-		sql.delete("noticeBaord.delete", nno);
+		sql.delete("noticeBoard.delete", nno);
 	}
 
 	@Override
 	public NoticeBoard search(int nno) {
-		System.out.println("search>>>>>>>>>>>>>>@NoticeBoardServiceImpl");
-		return sql.selectOne("noticeBaord.search", nno);
+		System.out.println("search>>>>>>>>>>>>>>>>>>>>>>>@dao");
+		System.out.println(nno);
+		return sql.selectOne("noticeBoard.search", nno);
 	}
 
 	@Override
@@ -58,6 +59,7 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 
 	@Override
 	public void addFiles(List<FileBean> files, int nno) {
+		System.out.println("addFiles>>>>>>>>>>>>>>>>>>>>>>>>>>>>>@NoticeBoardDaoImpl");
 		for(FileBean fileBean : files) {
 			fileBean.setBno(nno);
 			sql.insert("noticeBoard.insertFile", fileBean);
@@ -66,7 +68,7 @@ public class NoticeBoardDaoImpl implements NoticeBoardDao {
 
 	@Override
 	public void removeFiles(int nno) {
-		sql.delete("noticeBaord.delete", nno);
+		sql.delete("noticeBoard.delete", nno);
 	}
 
 }

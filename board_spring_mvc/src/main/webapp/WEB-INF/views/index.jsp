@@ -7,9 +7,9 @@
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+ 
    <title>KDN Restaurant</title>
-
+ 
    <!-- CSS includes -->
    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <link href="bootstrap/css/bootswatch.scss" rel="stylesheet">
     <link href="bootstrap/css/variables.scss" rel="stylesheet">
     
-
+ 
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
    <!--[if lt IE 9]>
@@ -86,7 +86,7 @@
    text-align: center;
    display: block;
 }
-
+ 
 .form-control {
     color: #212121;
 }
@@ -98,7 +98,7 @@
 .btn-custom:focus {
     color: #fff;
 }
-
+ 
 #loginFooter {
     color: #6d6d6d;
     font-size: 12px;
@@ -110,10 +110,10 @@
 #loginFooter a {
     color: inherit;
 }
-
+ 
 </style>
 <body>
-
+ 
 <!-- Navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
    <div class="container">
@@ -125,7 +125,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
          </button>
-         <a href="#" title="My Restaurant Bootstrap Theme">
+         <a href="/board" title="My Restaurant Bootstrap Theme">
                 <img class="img-responsive" src="images/kdn_logo.jpg" alt="My Restaurant Bootstrap Theme" />
             </a>
       </div>
@@ -142,14 +142,14 @@
             	<li><a href="" class="smooth-scroll" data-toggle="modal" data-target="#myModal"> Login </a></li>
             </c:if>
             <c:if test = "${!empty mno}">
-            	<li><a href="mypageForm.do" class="smooth-scroll" > MyPage </a></li>
+            	<li><a href="myPage.do" class="smooth-scroll" > MyPage </a></li>
             	<li><a href="logout.do" class="smooth-scroll" > Logout </a></li>
             </c:if>
          </ul>
       </div><!-- /.navbar-collapse -->
    </div><!-- /.container-fluid -->
 </nav>
-
+ 
 <!-- 모달 팝업 --> 
 <div class="modal fade forget-modal" id = "myModal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-sm">
@@ -177,7 +177,7 @@
       </div> <!-- /.modal-content -->
    </div> <!-- /.modal-dialog -->
 </div> <!-- /.modal -->
-
+ 
 <div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -199,7 +199,7 @@
       </div> <!-- /.modal-content -->
    </div> <!-- /.modal-dialog -->
 </div> <!-- /.modal -->
-
+ 
 <!-- Carousel -->
 <article id="mainContent">
 <c:choose>
@@ -250,7 +250,7 @@
         <div class="carousel-control-arrow">&#8250;</div>
    </a>
 </div>
-
+ 
 <div class="container-news">
     <div class="container">
         <div class="page-header" id="news">
@@ -273,7 +273,7 @@
         </div>
     </div>
 </div>
-
+ 
 <div class="container-services">
     <div class="container">
         <div class="page-header" id="services">
@@ -312,7 +312,7 @@
         </div>
     </div>
 </div>
-
+ 
 <div class="container-about">
     <div class="container">
         <div class="page-header" id="about">
@@ -361,7 +361,7 @@
         </div>
     </div>
 </div>
-
+ 
 <div class="container-dishes">
    <div class="clearfix hidden-xs" style="width:100%; height:10px;"></div>
    <div class="container">
@@ -409,7 +409,7 @@
    </div>
    <div class="clearfix hidden-xs" style="width:100%; height:50px;"></div>
 </div>
-
+ 
 <div class="container-imagess">
     <div class="container">
         <div class="page-header" id="about">
@@ -458,9 +458,9 @@
         </div>
     </div>
 </div>
-
-
-
+ 
+ 
+ 
 <!--<div class="container-gallery">
     <div class="container">
         <div class="page-header" id="gallery">
@@ -551,8 +551,8 @@
     <div class="clearfix hidden-xs" style="width:100%; height:50px;"></div>
 </div>
  -->
-
-
+ 
+ 
 <footer id="subfooter" class="clearfix">
     <div class="container">
         <div class="row">
@@ -593,7 +593,7 @@
         </div>
     </div>
 </footer>
-
+ 
 <footer id="footer" class="clearfix">
     <div class="container">
         <div class="row">
@@ -606,7 +606,7 @@
         </div>
     </div>
 </footer>
-
+ 
 <script src="js/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/jquery.mixitup.min.js"></script>
@@ -616,7 +616,7 @@
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
-
+ 
 <script type="text/javascript">
     jQuery(function($) {
         // Mix It Up Gallery and Magnific Popup setup
@@ -629,7 +629,7 @@
             delegate: 'a',
             type: 'image'
         });
-
+ 
         // ShieldUI Calendar setup
         $("#calendar").shieldCalendar({
             footer: {
@@ -640,7 +640,7 @@
             max: new Date("2039/3/1"),
             value: new Date()
         });
-
+ 
         // ShieldUI QRCode setup
         $("#qrcode").shieldQRcode({
             mode: "byte",
@@ -650,7 +650,7 @@
                 color: "#ed1b24"
             }
         });
-
+ 
         // Google Maps setup
         var googlemap = new google.maps.Map(
             document.getElementById('googlemap'),
@@ -674,6 +674,6 @@
         }
     }
 </script>
-
+ 
 </body>
 </html>

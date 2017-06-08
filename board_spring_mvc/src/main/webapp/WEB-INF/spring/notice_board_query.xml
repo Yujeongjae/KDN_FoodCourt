@@ -61,9 +61,9 @@
 
 	</select>
 	<insert id="insert" parameterType="noticeBoard">
-		insert into board(nno, mno, title, contents, ndate)
+		insert into noticeBoard(nno, mno, title, contents, ndate)
 		values(
-		#{nno:INTEGER}
+		noticeboard_no.nextval
 		, #{mno:VARCHAR}
 		, #{title:VARCHAR}
 		, #{contents:VARCHAR}
@@ -76,8 +76,7 @@
 		boardfile(uno, rfilename, sfilename, nno)
 		values(noticeboardfile_no.nextval
 		, #{rfilename:VARCHAR}
-		,
-		#{sfilename:VARCHAR}
+		, #{sfilename:VARCHAR}
 		, #{nno: INTEGER}
 		)
 	</insert>
